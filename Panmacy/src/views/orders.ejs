@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Orders — Panmacy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+
+  <%- include("element/nav") %>
+
+  <main class="container" style="padding:var(--sp-10) var(--sp-4)">
+    <h1 style="font-family:var(--font-display);font-size:var(--fs-h2);margin-bottom:var(--sp-6)">My Orders</h1>
+    <div class="panel">
+      <div class="panel__body" style="padding:0">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Order</th>
+              <th>Date</th>
+              <th>Pharmacy</th>
+              <th>Items</th>
+              <th>Total</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <% orders.forEach(order => { %>
+            <tr>
+              <td>OD-C-<%= order.OrderID %>
+              </td>
+              <td>
+                <%= order.Date %>
+              </td>
+              <td>
+                <%= order.Pharmacy || "-" %>
+              </td>
+              <td>
+                <%= order.Items || "-" %>
+              </td>
+              <td>฿<%= Number(order.TotalAmount).toFixed(2) %>
+              </td>
+              <td>
+                <%= order.Status %>
+              </td>
+            </tr>
+            <% }) %>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

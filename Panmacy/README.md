@@ -1,0 +1,5 @@
+# Panmacy
+ใช้ Node.js + express + ejs + MySql
+
+npm i express ejs express-session mysql2
+npm i -D typescript @types/node @types/express @types/express-session

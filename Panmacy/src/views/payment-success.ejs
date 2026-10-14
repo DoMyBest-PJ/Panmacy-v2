@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order Successful — Panmacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/variables.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<link rel="stylesheet" href="/css/pages/success.css">
+</head>
+<body>
+
+<%- include("element/nav") %>
+
+<main class="success-shell">
+  <div class="card success-card" data-group="success-card">
+
+    <!-- Success illustration -->
+    <svg class="success-icon" viewBox="0 0 84 84" fill="none">
+      <circle cx="42" cy="42" r="40" fill="var(--pm-green-100)"/>
+      <circle cx="42" cy="42" r="28" fill="var(--pm-green-600)"/>
+      <path d="M31 42l8 8 15-17" stroke="#FDFBF6" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="70" cy="18" r="4" fill="var(--pm-amber-500)"/>
+      <circle cx="10" cy="55" r="3" fill="var(--pm-amber-500)"/>
+    </svg>
+
+    <h1>Payment Successful!</h1>
+    <p class="success-card__sub">Thanks for your order. The pharmacy is preparing it for delivery.</p>
+
+    <div class="order-number-row">
+      <span>Order Number</span>
+      <strong>OD-C-<%= order.OrderID %></strong>
+    </div>
+
+
+    <!-- Order summary -->
+    <div class="order-summary-mini" data-group="order-summary-mini">
+      <div class="order-summary-mini__row"><span>Items</span><strong>฿<%= Number(order.ItemsTotal).toFixed(2) %></strong></div>
+      <div class="order-summary-mini__row"><span>Delivery</span><strong>฿<%= Number(order.deliveryFee).toFixed(2) %></strong></div>
+      <div class="order-summary-mini__row"><span>Total Paid</span><strong>฿<%= Number(order.totalPaid).toFixed(2) %></strong></div>
+      <div class="order-summary-mini__row"><span>Payment Method</span><strong>Cash on delivery</strong></div>
+    </div>
+
+    <!-- Next actions -->
+    <div class="success-actions" data-group="success-actions">
+      <a href="/" class="btn btn--outline">Continue Shopping</a>
+      <a href="/orders" class="btn btn--primary">View Order</a>
+    </div>
+  </div>
+</main>
+
+<script src="js/main.js"></script>
+<script src="js/pages/success.js"></script>
+</body>
+</html>
